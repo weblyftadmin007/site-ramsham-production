@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - RAM SHAM PRODUCTION</title>
+  <meta name="description" content="Contact RAM SHAM PRODUCTION for wedding photography & cinematic films." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-content">
+        <a href="index.html" class="brand">
+          <span class="brand-name">RAM SHAM PRODUCTION</span>
+          <span class="brand-tagline">Photography & Cinematic | Artistic Of Wedding</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+          <a href="contact.html" class="btn-primary">Book Consultation</a>
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-links">
+          <a href="index.html" class="mobile-link">Home</a>
+          <a href="about.html" class="mobile-link">About</a>
+          <a href="services.html" class="mobile-link">Services</a>
+          <a href="gallery.html" class="mobile-link">Gallery</a>
+          <a href="contact.html" class="mobile-link active">Contact</a>
+          <a href="contact.html" class="btn-primary">Book Consultation</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section" style="padding-top: 120px">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 64px">
+          <h1 class="sec-title">Get In Touch</h1>
+          <p class="sec-subtitle">
+            Ready to capture your beautiful moment? Share your story with us and we'll get back to you soon.
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div>
+            <div class="card">
+              <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 24px">Tell Us About Your Day</h2>
+              <form name="Contact" method="POST" target="hidden-frame">
+                <div class="form-group">
+                  <label class="form-label" for="name">Full Name *</label>
+                  <input type="text" id="name" name="name" class="form-input" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" class="form-input" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" class="form-input" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="eventType">Event Type *</label>
+                  <select id="eventType" name="eventType" class="form-input" required>
+                    <option value="">Select event type</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Cinematic Wedding Film">Cinematic Wedding Film</option>
+                    <option value="Pre-Wedding">Pre-Wedding</option>
+                    <option value="Engagement">Engagement</option>
+                    <option value="Portraits">Portraits</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="eventDate">Event Date</label>
+                  <input type="date" id="eventDate" name="eventDate" class="form-input" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="location">Location</label>
+                  <input type="text" id="location" name="location" class="form-input" placeholder="City, Venue or Destination" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="message">Tell us more *</label>
+                  <textarea id="message" name="message" class="form-input" rows="5" placeholder="Share your vision, timeline, guest count or any specific details..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+              </form>
+            </div>
+          </div>
+          <div class="contact-info">
+            <div class="card">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Email</h4>
+                  <p>hello@ramshamproduction.com</p>
+                </div>
+              </div>
+              <div class="contact-item" style="margin-top: 24px">
+                <div class="contact-icon">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1..274-1.21-2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>WhatsApp</h4>
+                  <p><a href="https://wa.me/" target="_blank" rel="noopener" class="footer-link" style="color: var(--text-muted)">Chat with us on WhatsApp</a></p>
+                </div>
+              </div>
+              <div class="contact-item" style="margin-top: 24px">
+                <div class="contact-icon">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Location</h4>
+                  <p>Available for travel worldwide</p>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 16px">Follow Our Work</h2>
+              <p style="color: var(--text-muted); margin-bottom: 20px">See more stories on our social channels</p>
+              <div class="social-links" style="gap: 12px">
+                <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-link" style="background: var(--accent-cream); color: var(--accent)">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069m0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0m0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324M12 16a4 4 0 110-8 4 4 0 010 8m6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881" />
+                  </svg>
+                </a>
+                <a href="https://facebook.com/" target="_blank" rel="noopener" class="social-link" style="background: var(--accent-cream); color: var(--accent)">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 011.141.195v3.325a8.623 8.623 0 00-.653-.036 26.805 26.805 0 00-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 00-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z" />
+                  </svg>
+                </a>
+                <a href="https://youtube.com/" target="_blank" rel="noopener" class="social-link" style="background: var(--accent-cream); color: var(--accent)">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="footer-title">RAM SHAM PRODUCTION</h3>
+          <p class="footer-description">
+            Photography & Cinematic | Artistic Of Wedding. I am ready to capture your beautiful moment.
+          </p>
+          <div class="social-links">
+            <a href="https://wa.me/" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
+              </svg>
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069m0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0m0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324M12 16a4 4 0 110-8 4 4 0 010 8m6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881" />
+              </svg>
+            </a>
+            <a href="https://facebook.com/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 011.141.195v3.325a8.623 8.623 0 00-.653-.036 26.805 26.805 0 00-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 00-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647z" />
+              </svg>
+            </a>
+            <a href="https://youtube.com/" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="services.html" class="footer-link">Services</a>
+            <a href="gallery.html" class="footer-link">Gallery</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Get In Touch</h4>
+          <div class="footer-links">
+            <a href="mailto:hello@ramshamproduction.com" class="footer-link">hello@ramshamproduction.com</a>
+            <a href="https://wa.me/" target="_blank" rel="noopener" class="footer-link">WhatsApp Chat</a>
+            <span class="footer-link" style="opacity: 0.8">Available for travel worldwide</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 RAM SHAM PRODUCTION. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <iframe name="hidden-frame" style="display:none"></iframe>
+  <script src="main.js"></script>
+</body>
+</html>
