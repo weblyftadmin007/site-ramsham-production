@@ -438,7 +438,6 @@
       border: 1px solid rgba(255,255,255,0.05);
       border-radius: 24px;
       overflow: hidden;
-      padding: 0;
       transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
       cursor: pointer;
       position: relative;
@@ -469,7 +468,7 @@
 
     .service-image {
       position: relative;
-      aspect-ratio: 16/9;
+      aspect-ratio: 1 / 1.5;
       overflow: hidden;
     }
 
@@ -904,12 +903,25 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
       .nav-links { display: none; }
       .menu-btn { display: block; }
       .container { padding: 20px; }
-      .hero { padding: 100px 20px 60px; }
       .nav { padding: 16px 20px; }
+    }
+
+    @media (max-width: 768px) {
+      .service-card-img {
+        aspect-ratio: 1 / 1;
+      }
+      
+      .service-card-body h3 {
+        font-size: 1.25rem;
+      }
+      
+      .service-card-body p {
+        font-size: 0.875rem;
+      }
     }
 
     /* Lightbox */

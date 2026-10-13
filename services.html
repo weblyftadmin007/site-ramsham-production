@@ -54,14 +54,14 @@
     .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold-gradient); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
     .service-card:hover::before { transform: scaleX(1); }
     .service-card:hover { border-color: rgba(201, 169, 110, 0.2); transform: translateY(-8px); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5); }
-    .service-image { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+    .service-image { position: relative; aspect-ratio: 1 / 1.5; overflow: hidden; }
     .service-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
     .service-card:hover .service-image img { transform: scale(1.08); }
     .service-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 0%, rgba(10,10,10,0.8) 100%); }
-    .service-content { padding: 32px; }
-    .service-content h3 { font-family: var(--font-display); font-size: 1.75rem; font-weight: 500; margin-bottom: 16px; color: var(--text-primary); }
-    .service-content p { color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 20px; }
-    .service-price { color: var(--accent); font-weight: 500; font-size: 0.875rem; letter-spacing: 0.05em; }
+    .service-content { padding: clamp(24px, 4vw, 32px); }
+    .service-content h3 { font-family: var(--font-display); font-size: clamp(1.5rem, 2vw, 1.75rem); font-weight: 500; margin-bottom: 16px; color: var(--text-primary); }
+    .service-content p { color: var(--text-secondary); font-size: clamp(0.875rem, 1vw, 0.9375rem); line-height: 1.7; margin-bottom: 20px; }
+    .service-price { color: var(--accent); font-weight: 500; font-size: clamp(0.875rem, 1vw, 1rem); letter-spacing: 0.05em; }
     .cta-section { text-align: center; max-width: 720px; margin: 0 auto; }
     .btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 40px; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.4s ease; cursor: pointer; border: none; position: relative; overflow: hidden; }
     .btn-primary { background: var(--accent); color: var(--bg-dark); }
@@ -82,6 +82,20 @@
     .footer-link:hover { color: var(--accent); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 40px; text-align: center; color: var(--text-secondary); font-size: 0.75rem; }
     @media (max-width: 768px) { .nav-links { display: none; } .menu-btn { display: block; } .container { padding: 20px; } .nav { padding: 16px 20px; } }
+
+    @media (max-width: 768px) {
+      .service-card-img {
+        aspect-ratio: 1 / 1;
+      }
+      
+      .service-content h3 {
+        font-size: 1.25rem;
+      }
+      
+      .service-content p {
+        font-size: 0.875rem;
+      }
+    }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>

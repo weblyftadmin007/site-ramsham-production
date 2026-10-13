@@ -377,7 +377,7 @@ body {
 
 .service-card-img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 1 / 1.5;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
@@ -387,12 +387,12 @@ body {
 }
 
 .service-card-body {
-  padding: 32px;
+  padding: clamp(20px, 4vw, 32px);
 }
 
 .service-card-body h3 {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: 600;
   color: var(--dark-text);
   margin-bottom: 12px;
@@ -400,7 +400,7 @@ body {
 
 .service-card-body p {
   color: var(--text-muted);
-  font-size: 0.9375rem;
+  font-size: clamp(0.875rem, 1vw, 1rem);
   line-height: 1.7;
   margin-bottom: 24px;
 }
@@ -408,7 +408,25 @@ body {
 .service-card-body .price {
   color: var(--accent);
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: clamp(0.875rem, 1vw, 1rem);
+}
+
+@media (max-width: 768px) {
+  .service-card-body {
+    padding: 24px;
+  }
+  
+  .service-card-img {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .service-card-body h3 {
+    font-size: 1.25rem;
+  }
+  
+  .service-card-body p {
+    font-size: 0.875rem;
+  }
 }
 
 /* ------------------------------
