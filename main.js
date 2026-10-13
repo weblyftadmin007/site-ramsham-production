@@ -1,4 +1,4 @@
-// Bharat Studio Production - Interactive Wedding Photography Website
+// Bhaarat Studio Production - Interactive Wedding Photography Website
 document.addEventListener('DOMContentLoaded', () => {
   // Reduced motion check
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
