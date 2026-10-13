@@ -3,269 +3,1261 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAM SHAM PRODUCTION - Photography & Cinematic Wedding Films</title>
-  <meta name="description" content="RAM SHAM PRODUCTION - Photography & Cinematic | Artistic Of Wedding. I am ready to capture your beautiful moment." />
-  <meta name="theme-color" content="#b9a06c" />
+  <title>Vibgyor Wedding Films - Photography & Cinematic Wedding Films</title>
+  <meta name="description" content="Vibgyor Wedding Films - Photography & Cinematic | Artistic Of Wedding. I am ready to capture your beautiful moment." />
+  <meta name="theme-color" content="#1a1a1a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="video" href="https://cdn.coverr.co/videos/coverr-wedding-by-the-beach-134/1080p.mp4" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Vibgyor Wedding Films - Modern 3D Artistic Website */
+    :root {
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Space Grotesk', system-ui, sans-serif;
+      --bg-dark: #0a0a0a;
+      --bg-light: #141414;
+      --text-primary: #f5f5f5;
+      --text-secondary: #a0a0a0;
+      --accent: #c9a96e;
+      --accent-glow: rgba(201, 169, 110, 0.4);
+      --gold-gradient: linear-gradient(135deg, #c9a96e 0%, #e8d4a8 50%, #c9a96e 100%);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-glow); }
+
+    /* Selection */
+    ::selection { background: var(--accent); color: var(--bg-dark); }
+
+    /* Canvas Background - Full Page */
+    #three-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    /* Container */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 60px;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(10,10,10,0.9) 0%, transparent 100%);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent);
+    }
+
+    .nav-link:hover::before, .nav-link.active::before {
+      width: 100%;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    /* Hero Video Background */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero-video-wrapper {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      overscroll-behavior: none;
+      pointer-events: none;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      will-change: transform, filter;
+      transition: filter 0.1s ease;
+      pointer-events: none;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(10, 10, 10, 0.6) 0%,
+        rgba(10, 10, 10, 0.4) 30%,
+        rgba(10, 10, 10, 0.7) 100%
+      );
+      z-index: 1;
+      transition: background 0.1s ease;
+    }
+
+    .hero-video-cinematic {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(201, 169, 110, 0.08) 0%,
+        transparent 40%,
+        rgba(10, 10, 10, 0.3) 100%
+      );
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Cinematic scan lines effect */
+    .hero-scanlines {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      );
+    }
+
+    /* Vignette effect for cinematic feel */
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      background: radial-gradient(
+        ellipse at center,
+        transparent 50%,
+        rgba(0, 0, 0, 0.4) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 1200px;
+      padding: 0 24px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 40px;
+      padding: 12px 24px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s ease forwards 0.3s;
+      text-shadow: 0 0 30px rgba(201, 169, 110, 0.5);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 12vw, 8rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 48px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards 0.5s;
+      text-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-title .line {
+      display: block;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards 0.6s;
+    }
+
+    .hero-title .line:nth-child(2) {
+      animation-delay: 0.7s;
+    }
+
+    .hero-title .highlight {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards 0.9s;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards 1.1s;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 40px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg-dark);
+    }
+
+    .btn-primary:hover {
+      background: #d4b87a;
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px -10px var(--accent-glow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* Mouse follower glow */
+    .mouse-glow {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201, 169, 110, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    /* Gold separator line between sections */
+    section:not(:first-of-type)::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.6;
+      z-index: 5;
+    }
+
+    @media (max-width: 768px) {
+      section:not(:first-of-type)::before {
+        width: 120px;
+      }
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-top: 24px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Services Section */
+    .services {
+      background: rgba(10, 10, 10, 0.5);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 40px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 24px;
+      overflow: hidden;
+      padding: 0;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      border-color: rgba(201, 169, 110, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
+    }
+
+    .service-image {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .service-card:hover .service-image img {
+      transform: scale(1.08);
+    }
+
+    .service-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(20,20,20,0.8) 100%);
+    }
+
+    .service-content {
+      padding: 32px;
+    }
+
+    .service-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .service-content p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .service-price {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Gallery Section */
+    .gallery {
+      background: rgba(10, 10, 10, 0.5);
+    }
+
+    .gallery-filters {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 12px 28px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-secondary);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: var(--font-body);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg-dark);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .gallery-item.fade-in {
+      animation: galleryFadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    }
+
+    @keyframes galleryFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.9) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 32px;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-label {
+      color: var(--text-primary);
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      transform: translateY(10px);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-label {
+      transform: translateY(0);
+    }
+
+    /* Stats Section */
+    .stats {
+      background: rgba(10, 10, 10, 0.5);
+      padding: 100px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 60px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+    }
+
+    .stat-item {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .stat-item.fade-in {
+      animation: statFadeIn 0.6s ease forwards;
+    }
+
+    @keyframes statFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 16px;
+      display: block;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* About Section */
+    .about {
+      background: rgba(10, 10, 10, 0.5);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .about-image::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border: 1px solid var(--accent);
+      border-radius: 25px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    .about-content h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 40px;
+    }
+
+    .about-content h2 span {
+      color: var(--accent);
+    }
+
+    .about-content p {
+      color: var(--text-secondary);
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .about-content .btn {
+      margin-top: 16px;
+    }
+
+    /* CTA Section */
+    .cta {
+      background: rgba(10, 10, 10, 0.5);
+      text-align: center;
+      padding: 140px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      margin-bottom: 40px;
+      line-height: 1.2;
+    }
+
+    .cta p {
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(10, 10, 10, 0.85);
+      padding: 80px 0 40px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .footer-brand p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-link {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .footer-heading {
+      color: var(--text-primary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 40px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-btn { display: block; }
+      .container { padding: 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .nav { padding: 16px 20px; }
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.98);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 12px;
+      transform: scale(0.9);
+      transition: transform 0.4s ease;
+    }
+
+    .lightbox.active .lightbox-img {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+      background: var(--accent);
+      color: var(--bg-dark);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 10, 10, 0.98);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .mobile-menu.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--accent);
+    }
+  </style>
 </head>
 <body>
+  <!-- Three.js Canvas for 3D Background -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- Mouse Follower Glow -->
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="about.html" class="mobile-link">About</a>
+    <a href="services.html" class="mobile-link">Services</a>
+    <a href="gallery.html" class="mobile-link">Gallery</a>
+    <a href="contact.html" class="mobile-link">Contact</a>
+  </div>
+
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="container">
-      <div class="nav-content">
-        <a href="index.html" class="brand">
-          <span class="brand-name">RAM SHAM PRODUCTION</span>
-          <span class="brand-tagline">Photography & Cinematic | Artistic Of Wedding</span>
-        </a>
-        <div class="nav-links">
-          <a href="index.html" class="nav-link active">Home</a>
-          <a href="about.html" class="nav-link">About</a>
-          <a href="services.html" class="nav-link">Services</a>
-          <a href="gallery.html" class="nav-link">Gallery</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-          <a href="contact.html" class="btn-primary">Book Consultation</a>
-        </div>
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">
-          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  <nav class="nav" id="nav">
+    <a href="index.html" class="logo">Vibgyor Wedding Films</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html" class="btn btn-primary">Book Now</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu">
+      <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Hero Section with Cinematic Video Background -->
+  <section class="hero" id="hero">
+    <div class="hero-video-wrapper">
+      <!-- Cinematic background video -->
+      <video 
+        class="hero-video" 
+        id="heroVideo"
+        autoplay 
+        muted 
+        loop 
+        playsinline
+        poster="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80"
+      >
+        <source src="videos/Yash.mp4" type="video/mp4">
+      </video>
+      
+      <!-- Dark overlay for text readability -->
+      <div class="hero-video-overlay"></div>
+      
+      <!-- Cinematic color grading effect -->
+      <div class="hero-video-cinematic"></div>
+      
+      <!-- Film grain / scan lines effect -->
+      <div class="hero-scanlines"></div>
+      
+      <!-- Vignette effect -->
+      <div class="hero-vignette"></div>
+    </div>
+
+    <div class="container hero-content">
+      <span class="hero-label">Photography & Cinematic Films</span>
+      <h1 class="hero-title">
+        <span class="line">Timeless Stories.</span>
+        <span class="line highlight">Cinematic Moments.</span>
+      </h1>
+      <p class="hero-subtitle">Where love meets art. Capturing your most precious moments with elegance and soul.</p>
+      <div class="hero-actions">
+        <a href="gallery.html" class="btn btn-primary">
+          View Portfolio
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
           </svg>
-        </button>
+        </a>
+        <a href="contact.html" class="btn btn-outline">Get In Touch</a>
       </div>
-      <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-links">
-          <a href="index.html" class="mobile-link active">Home</a>
-          <a href="about.html" class="mobile-link">About</a>
-          <a href="services.html" class="mobile-link">Services</a>
-          <a href="gallery.html" class="mobile-link">Gallery</a>
-          <a href="contact.html" class="mobile-link">Contact</a>
-          <a href="contact.html" class="btn-primary">Book Consultation</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-title">Capturing Every Chapter of Your Love Story</h2>
+        <p class="section-subtitle">From intimate moments to grand celebrations, we craft visual narratives that resonate with emotion and elegance.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80" alt="Wedding Photography" loading="lazy" />
+          </div>
+          <div class="service-content">
+            <h3>Wedding Photography</h3>
+            <p>Artfully documented from the quiet anticipation to the last dance — preserving genuine emotions in timeless frames.</p>
+            <span class="service-price">Custom Packages</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80" alt="Cinematic Wedding Films" loading="lazy" />
+          </div>
+          <div class="service-content">
+            <h3>Cinematic Wedding Films</h3>
+            <p>Elegant, story-driven films crafted with cinematic pacing and a refined color palette to relive your day as it felt.</p>
+            <span class="service-price">Custom Packages</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&q=80" alt="Pre-Wedding & Engagement" loading="lazy" />
+          </div>
+          <div class="service-content">
+            <h3>Pre-Wedding & Engagement</h3>
+            <p>Romantic, relaxed sessions in locations that feel meaningful — capturing your connection before the big day.</p>
+            <span class="service-price">Custom Packages</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Featured Work</span>
+        <h2 class="section-title">Stories Told Through Lens</h2>
+        <p class="section-subtitle">A curated selection of weddings and cinematic stories — crafted with warmth and artistic vision.</p>
+      </div>
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="cinematic">Cinematic</button>
+        <button class="filter-btn" data-filter="wedding">Wedding</button>
+        <button class="filter-btn" data-filter="engagement">Engagement</button>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item" data-category="cinematic">
+          <img src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=600&q=80" alt="Cinematic wedding couple" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Cinematic Storytelling</span>
+          </div>
+        </figure>
+        <figure class="gallery-item" data-category="wedding">
+          <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&q=80" alt="Bride and groom at golden hour" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Golden Hour Romance</span>
+          </div>
+        </figure>
+        <figure class="gallery-item" data-category="engagement">
+          <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=600&q=80" alt="Pre-wedding couple" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Pre-Wedding Session</span>
+          </div>
+        </figure>
+        <figure class="gallery-item" data-category="cinematic">
+          <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80" alt="Wedding celebration" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Celebration Highlights</span>
+          </div>
+        </figure>
+        <figure class="gallery-item" data-category="engagement">
+          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80" alt="Engagement portrait" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Engagement Portrait</span>
+          </div>
+        </figure>
+        <figure class="gallery-item" data-category="wedding">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&q=80" alt="Elegant wedding portrait" loading="lazy" />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Timeless Portrait</span>
+          </div>
+        </figure>
+      </div>
+      <div class="text-center" style="margin-top: 60px;">
+        <a href="gallery.html" class="btn btn-primary">
+          Explore Full Gallery
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number" data-target="500">0</span>
+          <span class="stat-label">Love Stories Captured</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="10">0</span>
+          <span class="stat-label">Years of Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="100">0</span>
+          <span class="stat-label">% Focus on Authenticity</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="24">0</span>
+          <span class="stat-label">Awards & Recognition</span>
         </div>
       </div>
     </div>
-  </nav>
+  </section>
 
-  <main>
-    <!-- Hero with Video Background -->
-    <section class="hero-video">
-      <video class="hero-bg-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-        <source src="https://cdn.coverr.co/videos/coverr-wedding-by-the-beach-134/1080p.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <span class="hero-subtitle">RAM SHAM PRODUCTION</span>
-        <h1 class="hero-title">Timeless Stories. Cinematic Moments.</h1>
-        <p class="hero-tagline">Photography & Cinematic | Artistic Of Wedding. I am ready to capture your beautiful moment.</p>
-        <p class="hero-description">
-          Creating elegant, heartfelt imagery that preserves the emotion, beauty and authenticity of your most meaningful day. 
-          Every frame is crafted with artistry and intention to tell your love story for generations to come.
-        </p>
-        <div class="hero-actions">
-          <a href="gallery.html" class="btn-hero-primary">
-            View Portfolio
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-          <a href="contact.html" class="btn-hero-outline">Get In Touch</a>
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&q=80" alt="Wedding photographer at work" loading="lazy" />
+        </div>
+        <div class="about-content">
+          <span class="section-label" style="display: block; text-align: left;">About Us</span>
+          <h2>Stories Told With <span>Heart</span> & Artistry</h2>
+          <p>Vibgyor Wedding Films is rooted in the belief that your wedding day is more than an event — it's a collection of fleeting emotions, quiet glances and unfiltered joy.</p>
+          <p>We approach every story with a blend of documentary sensitivity and cinematic refinement, creating imagery that feels effortless, natural and enduring.</p>
+          <a href="about.html" class="btn btn-outline">Learn More</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Services Preview -->
-    <section class="section">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="sec-title">Capturing Every Chapter of Your Story</h2>
-          <p class="sec-subtitle">
-            From intimate moments to grand celebrations, we offer a curated range of photography and cinematic services 
-            tailored to preserve your memories with elegance and authenticity.
-          </p>
-        </div>
-        <div class="grid-3">
-          <article class="service-card">
-            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Wedding Photography" loading="lazy" />
-            <div class="service-card-body">
-              <h3>Wedding Photography</h3>
-              <p class="price">Contact for Quote</p>
-              <p>Artfully documented from the quiet anticipation to the last dance — preserving genuine emotions in timeless frames.</p>
-            </div>
-          </article>
-          <article class="service-card">
-            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Cinematic Wedding Films" loading="lazy" />
-            <div class="service-card-body">
-              <h3>Cinematic Wedding Films</h3>
-              <p class="price">Contact for Quote</p>
-              <p>Elegant, story-driven films crafted with cinematic pacing and a refined color palette to relive your day as it felt.</p>
-            </div>
-          </article>
-          <article class="service-card">
-            <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Pre-Wedding & Engagement" loading="lazy" />
-            <div class="service-card-body">
-              <h3>Pre-Wedding & Engagement</h3>
-              <p class="price">Contact for Quote</p>
-              <p>Romantic, relaxed sessions in locations that feel meaningful — capturing your connection before the big day.</p>
-            </div>
-          </article>
-        </div>
-        <div class="text-center" style="margin-top: 48px">
-          <a href="services.html" class="btn-outline">
-            View All Services
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <span class="section-label" style="display: block; margin-bottom: 24px;">Let's Create Together</span>
+        <h2>Ready to Capture Your Beautiful Moment?</h2>
+        <p>Share a few details about your day and we'll craft a photography and cinematic experience tailored just for you.</p>
+        <a href="contact.html" class="btn btn-primary">
+          Start Your Story
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
       </div>
-    </section>
-
-    <!-- Featured Gallery Preview -->
-    <section class="section gallery-section">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="sec-title">Featured Work</h2>
-          <p class="sec-subtitle">
-            A curated selection of weddings and cinematic stories — crafted with a warm, elegant aesthetic 
-            that celebrates love in its most authentic form.
-          </p>
-        </div>
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Bride and groom at golden hour" loading="lazy" />
-            <div class="gallery-overlay">
-              <figcaption class="gallery-label">Wedding Moments</figcaption>
-            </div>
-          </figure>
-          <figure class="gallery-item cinematic">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Cinematic wedding couple" loading="lazy" />
-            <div class="gallery-overlay">
-              <figcaption class="gallery-label">Cinematic Storytelling</figcaption>
-            </div>
-          </figure>
-          <figure class="gallery-item">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Pre-wedding couple" loading="lazy" />
-            <div class="gallery-overlay">
-              <figcaption class="gallery-label">Pre-Wedding</figcaption>
-            </div>
-          </figure>
-          <figure class="gallery-item">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Engagement portrait" loading="lazy" />
-            <div class="gallery-overlay">
-              <figcaption class="gallery-label">Engagement</figcaption>
-            </div>
-          </figure>
-          <figure class="gallery-item cinematic">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Wedding celebration" loading="lazy" />
-            <div class="gallery-overlay">
-              <figcaption class="gallery-label">Celebrations</figcaption>
-            </div>
-          </figure>
-          <figure class="gallery-item">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Elegant wedding portrait" loading="lazy" />
-            <div class="gallery-overlay">
-              <figcaption class="gallery-label">Artistic Portraits</figcaption>
-            </div>
-          </figure>
-        </div>
-        <div class="text-center" style="margin-top: 48px">
-          <a href="gallery.html" class="btn-primary">
-            Explore Full Gallery
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item">
-            <div class="stat-number">500+</div>
-            <div class="stat-label">Beautiful Love Stories Captured</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">10+</div>
-            <div class="stat-label">Years of Creative Experience</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Focus on Authentic Moments</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">Timeless</div>
-            <div class="stat-label">Editorial &amp; Cinematic Style</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Preview -->
-    <section class="section">
-      <div class="container">
-        <div class="about-grid">
-          <div>
-            <img class="about-img" src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Wedding photographer at work" loading="lazy" />
-          </div>
-          <div class="about-content">
-            <h2 class="section-title">Stories Told With Heart &amp; Artistry</h2>
-            <p>
-              RAM SHAM PRODUCTION is rooted in the belief that your wedding day is more than an event — it's a collection 
-              of fleeting emotions, quiet glances and unfiltered joy. We approach every story with a blend of documentary 
-              sensitivity and cinematic refinement.
-            </p>
-            <p>
-              Guided by warmth and an eye for timeless beauty, we create imagery that feels effortless, natural and enduring. 
-              Our focus is simple: to capture your beautiful moments as they truly felt — so you can relive them for a lifetime.
-            </p>
-            <a href="about.html" class="btn-primary" style="margin-top: 16px">
-              Learn More About Us
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section cta">
-      <div class="container">
-        <div class="cta-content">
-          <h2 class="sec-title">Ready to Capture Your Beautiful Moment?</h2>
-          <p class="sec-subtitle">
-            Let's begin telling your story. Share a few details about your day and we'll be in touch to craft 
-            a photography and cinematic experience tailored just for you.
-          </p>
-          <a href="contact.html" class="btn-primary">
-            Start Your Story
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h3 class="footer-title">RAM SHAM PRODUCTION</h3>
-          <p class="footer-description">
-            Photography & Cinematic | Artistic Of Wedding. I am ready to capture your beautiful moment. 
-            Crafting timeless, elegant stories with warmth and artistry.
-          </p>
+          <h3>Vibgyor Wedding Films</h3>
+          <p>Photography & Cinematic Wedding Films. Crafting timeless, elegant stories with warmth and artistry since 2016.</p>
           <div class="social-links">
-            <a href="https://wa.me/" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413" />
-              </svg>
-            </a>
             <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
               <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069m0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0m0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324M12 16a4 4 0 110-8 4 4 0 010 8m6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881" />
@@ -284,7 +1276,7 @@
           </div>
         </div>
         <div>
-          <h4 class="footer-heading">Quick Links</h4>
+          <span class="footer-heading">Navigate</span>
           <div class="footer-links">
             <a href="index.html" class="footer-link">Home</a>
             <a href="about.html" class="footer-link">About</a>
@@ -294,50 +1286,362 @@
           </div>
         </div>
         <div>
-          <h4 class="footer-heading">Services</h4>
+          <span class="footer-heading">Services</span>
           <div class="footer-links">
-            <a href="services.html" class="footer-link">Wedding Photography</a>
-            <a href="services.html" class="footer-link">Cinematic Wedding Films</a>
+            <a href="services.html" class="footer-link">Photography</a>
+            <a href="services.html" class="footer-link">Cinematic Films</a>
             <a href="services.html" class="footer-link">Pre-Wedding</a>
             <a href="services.html" class="footer-link">Engagement</a>
             <a href="services.html" class="footer-link">Portraits</a>
           </div>
         </div>
         <div>
-          <h4 class="footer-heading">Get In Touch</h4>
+          <span class="footer-heading">Contact</span>
           <div class="footer-links">
-            <a href="mailto:hello@ramshamproduction.com" class="footer-link">hello@ramshamproduction.com</a>
-            <a href="https://wa.me/" target="_blank" rel="noopener" class="footer-link">WhatsApp Chat</a>
-            <span class="footer-link" style="opacity: 0.8">Available for travel worldwide</span>
+            <a href="mailto:hello@ramsham.com" class="footer-link">hello@ramsham.com</a>
+            <a href="https://wa.me/" target="_blank" rel="noopener" class="footer-link">WhatsApp</a>
+            <a href="#" class="footer-link">Book Consultation</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 RAM SHAM PRODUCTION. All rights reserved.</p>
+        <p>&copy; 2026 Vibgyor Wedding Films. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
-      <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    <button class="lightbox-close" id="lightboxClose">
+      <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">
-      <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">
-      <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged view" />
   </div>
 
-  <script src="main.js"></script>
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
+
+  <script>
+    // ============================================
+    // THREE.JS - 3D Particle System
+    // ============================================
+    // Wrapped in try/catch: some browsers/environments can't create a WebGL
+    // context (hardware acceleration off, locked-down preview sandboxes, very
+    // old browsers, etc). Without this guard, that failure would throw before
+    // the DOMContentLoaded listener below ever gets registered, silently
+    // breaking the mobile menu, gallery filters, lightbox, scroll nav and
+    // stats counters too - none of which have anything to do with Three.js.
+    try {
+    const canvas = document.getElementById('three-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: 'high-performance'
+    });
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x0a0a0a, 0); // Fully transparent background
+
+    // Transparent scene - orbs show through to page
+
+    // Particles
+    const particleCount = 500;
+    const particlesGeometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+
+      // Gold-ish colors
+      const color = new THREE.Color().setHSL(0.1, 0.4, Math.random() * 0.3 + 0.2);
+      colors[i * 3] = color.r;
+      colors[i * 3 + 1] = color.g;
+      colors[i * 3 + 2] = color.b;
+    }
+
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 0.03,
+      transparent: true,
+      opacity: 0.6,
+      vertexColors: true,
+      blending: THREE.AdditiveBlending
+    });
+
+    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particlesMesh);
+
+    // Floating orbs
+    const orbCount = 8;
+    const orbs = [];
+
+    for (let i = 0; i < orbCount; i++) {
+      const orbGeometry = new THREE.SphereGeometry(0.3 + Math.random() * 0.5, 32, 32); // fixed op
+      const orbMaterial = new THREE.MeshBasicMaterial({ // fixed op
+        color: new THREE.Color().setHSL(0.1, 0.8, 0.6 + Math.random() * 0.3),
+        transparent: true,
+        opacity: 0.4,
+        wireframe: true
+      });
+      
+      const orb = new THREE.Mesh(orbGeometry, orbMaterial);
+      
+      // Store initial orbs opacity in userData
+      orb.userData = {
+        initialOpacity: 0.4,
+        speed: 0.2 + Math.random() * 0.3,
+        angle: Math.random() * Math.PI * 2
+      };
+      orb.position.set(
+        (Math.random() - 0.5) * 15,
+        (Math.random() - 0.5) * 15,
+        -Math.random() * 15
+      );
+      scene.add(orb);
+      orbs.push(orb);
+    }
+
+    // Camera position - orbs and particles in front
+    camera.position.z = 5;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+
+    // Mouse tracking for parallax
+    document.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+      mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    // Resize handler
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Smooth mouse following
+      targetX += (mouseX - targetX) * 0.02;
+      targetY += (mouseY - targetY) * 0.02;
+
+      // Rotate particles slightly based on mouse
+      particlesMesh.rotation.x += 0.0003;
+      particlesMesh.rotation.y += 0.0005;
+
+      // Animate orbs
+      orbs.forEach((orb, index) => {
+        orb.position.y += Math.sin(Date.now() * 0.001 * orb.userData.speed + orb.userData.angle) * 0.003;
+        orb.position.x += Math.cos(Date.now() * 0.001 * orb.userData.speed * 0.5 + orb.userData.angle) * 0.002;
+        orb.rotation.x += 0.002;
+        orb.rotation.y += 0.003;
+      });
+
+      // Parallax effect on camera
+      camera.position.x += (targetX * 0.5 - camera.position.x) * 0.02;
+      camera.position.y += (targetY * 0.3 - camera.position.y) * 0.02;
+      camera.lookAt(scene.position);
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+    } catch (err) {
+      console.warn('WebGL background unavailable, skipping 3D effects:', err);
+      const canvasEl = document.getElementById('three-canvas');
+      if (canvasEl) canvasEl.style.display = 'none';
+    }
+
+    // ============================================
+    // CUSTOM JS - Interactions
+    // ============================================
+    let prefersReducedMotion = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      // Hero video - simple opacity fade on scroll, no playback manipulation
+      const heroVideo = document.getElementById('heroVideo');
+      const heroSection = document.getElementById('hero');
+      let videoTicking = false;
+
+      function updateHeroVideoOnScroll() {
+        if (!heroVideo || prefersReducedMotion) {
+          videoTicking = false;
+          return;
+        }
+        
+        const scrollPosition = window.scrollY;
+        const heroHeight = heroSection.offsetHeight;
+        
+        // Fade video out as we scroll past hero
+        if (scrollPosition < heroHeight) {
+          const opacity = 1 - (scrollPosition / heroHeight) * 0.7;
+          heroVideo.style.opacity = opacity;
+          heroVideo.style.transition = 'opacity 0.1s ease-out';
+        } else {
+          heroVideo.style.opacity = 0.3;
+        }
+        
+        videoTicking = false;
+      }
+
+      // Single scroll handler with rAF
+      window.addEventListener('scroll', () => {
+        if (prefersReducedMotion) return;
+        if (!videoTicking) {
+          window.requestAnimationFrame(() => {
+            // Update nav
+            if (window.scrollY > 50) {
+              nav.classList.add('scrolled');
+            } else {
+              nav.classList.remove('scrolled');
+            }
+            
+            // Update video
+            if (heroVideo) {
+              const scrollPosition = window.scrollY;
+              const heroHeight = heroSection.offsetHeight;
+              if (scrollPosition < heroHeight) {
+                const opacity = 1 - (scrollPosition / heroHeight) * 0.7;
+                heroVideo.style.opacity = Math.max(0.3, opacity);
+              } else {
+                heroVideo.style.opacity = 0.3;
+              }
+            }
+            videoTicking = false;
+          });
+          videoTicking = true;
+        }
+      });
+      
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mouseGlow = document.getElementById('mouseGlow');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      // Mobile menu toggle
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+      });
+
+      // Close mobile menu on link click
+      document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+        });
+      });
+
+      // Mouse glow effect
+      document.addEventListener('mousemove', (e) => {
+        if (prefersReducedMotion) return;
+        mouseGlow.style.left = e.clientX + 'px';
+        mouseGlow.style.top = e.clientY + 'px';
+        mouseGlow.style.opacity = '1';
+      });
+
+      document.addEventListener('mouseleave', () => {
+        mouseGlow.style.opacity = '0';
+      });
+
+      // Gallery filter
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.dataset.filter;
+
+          galleryItems.forEach((item, index) => {
+            const category = item.dataset.category;
+            if (filter === 'all' || category.includes(filter)) {
+              setTimeout(() => {
+                item.style.display = 'block';
+                item.classList.add('fade-in');
+              }, index * 100);
+            } else {
+              item.classList.remove('fade-in');
+              setTimeout(() => {
+                item.style.display = 'none';
+              }, 400);
+            }
+          });
+        });
+
+      // Stats counter animation
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statItems = document.querySelectorAll('.stat-item');
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+          entry.target.classList.add('counted');
+          const target = parseInt(entry.target.dataset.target) || 0;
+          animateValue(entry.target, 0, target, 2000);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    function animateValue(obj, start, end, duration) {
+      if (!prefersReducedMotion) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          obj.textContent = Math.floor(eased * (end - start) + start);
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          } else {
+            obj.textContent = end + '+';
+          }
+        };
+        window.requestAnimationFrame(step);
+      } else {
+        obj.textContent = end + '+';
+      }
+    }
+
+    statNumbers.forEach(num => {
+      statsObserver.observe(num);
+      // Trigger immediately if visible on load
+      const rect = num.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const target = parseInt(num.dataset.target) || 0;
+        animateValue(num, 0, target, 2000);
+        num.classList.add('counted');
+      }
+    });
+
+    // Fade in stats items on load
+    statItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('fade-in');
+      }, 600 + index * 150);
+    });
+      }); // closes filterBtns.forEach(btn => { ... })
+    }); // closes document.addEventListener('DOMContentLoaded', ...)
+  </script>
 </body>
 </html>
