@@ -1,4 +1,4 @@
-// BigBase Productions - Interactive Wedding Photography Website
+// House of the Frames - Interactive Wedding Photography Website
 document.addEventListener('DOMContentLoaded', () => {
   // Reduced motion check
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
